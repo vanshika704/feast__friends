@@ -41,53 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAbBMTG4l9cXQAQgNznctcBsUdgRjPtIXI',
-    appId: '1:182471678371:web:575cd0765d1650207fa216',
-    messagingSenderId: '182471678371',
-    projectId: 'feastfriends-6a21c',
-    authDomain: 'feastfriends-6a21c.firebaseapp.com',
-    databaseURL: 'https://feastfriends-6a21c-default-rtdb.firebaseio.com',
-    storageBucket: 'feastfriends-6a21c.appspot.com',
-    measurementId: 'G-MYXCFXQTMB',
+    apiKey: 'AIzaSyAfENTVCNfmtkjUVBRlUN25beN4oT4gDII',
+    appId: '1:282937028069:web:cc2da7ae6e16fc4b5f530c',
+    messagingSenderId: '282937028069',
+    projectId: 'feastfriends-78d6d',
+    authDomain: 'feastfriends-78d6d.firebaseapp.com',
+    storageBucket: 'feastfriends-78d6d.appspot.com',
+    measurementId: 'G-3G38VY1JT7',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAIbtEnmVYEcGU5KPuP8RUrl3shwn8gqAI',
-    appId: '1:182471678371:android:c8b3eaa3a1a29ff67fa216',
-    messagingSenderId: '182471678371',
-    projectId: 'feastfriends-6a21c',
-    databaseURL: 'https://feastfriends-6a21c-default-rtdb.firebaseio.com',
-    storageBucket: 'feastfriends-6a21c.appspot.com',
+    apiKey: 'AIzaSyABXATP-sa3zyw1poPnpXht0cH_m3WUUdc',
+    appId: '1:282937028069:android:0a199eb8bf5cad375f530c',
+    messagingSenderId: '282937028069',
+    projectId: 'feastfriends-78d6d',
+    storageBucket: 'feastfriends-78d6d.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCACcBKwMUsESGAs5vFcb3yoy0eERmeZg8',
-    appId: '1:182471678371:ios:3f3ba83ed8b461df7fa216',
-    messagingSenderId: '182471678371',
-    projectId: 'feastfriends-6a21c',
-    databaseURL: 'https://feastfriends-6a21c-default-rtdb.firebaseio.com',
-    storageBucket: 'feastfriends-6a21c.appspot.com',
+    apiKey: 'AIzaSyB1PiH7vq9D-bZ5G8gEilfpIMZMrhfGH1U',
+    appId: '1:282937028069:ios:82eba1667f84bfbf5f530c',
+    messagingSenderId: '282937028069',
+    projectId: 'feastfriends-78d6d',
+    storageBucket: 'feastfriends-78d6d.appspot.com',
     iosBundleId: 'com.example.feastFriends',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCACcBKwMUsESGAs5vFcb3yoy0eERmeZg8',
-    appId: '1:182471678371:ios:3f3ba83ed8b461df7fa216',
-    messagingSenderId: '182471678371',
-    projectId: 'feastfriends-6a21c',
-    databaseURL: 'https://feastfriends-6a21c-default-rtdb.firebaseio.com',
-    storageBucket: 'feastfriends-6a21c.appspot.com',
+    apiKey: 'AIzaSyB1PiH7vq9D-bZ5G8gEilfpIMZMrhfGH1U',
+    appId: '1:282937028069:ios:82eba1667f84bfbf5f530c',
+    messagingSenderId: '282937028069',
+    projectId: 'feastfriends-78d6d',
+    storageBucket: 'feastfriends-78d6d.appspot.com',
     iosBundleId: 'com.example.feastFriends',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAbBMTG4l9cXQAQgNznctcBsUdgRjPtIXI',
-    appId: '1:182471678371:web:dbb7fafaa29e5ab47fa216',
-    messagingSenderId: '182471678371',
-    projectId: 'feastfriends-6a21c',
-    authDomain: 'feastfriends-6a21c.firebaseapp.com',
-    databaseURL: 'https://feastfriends-6a21c-default-rtdb.firebaseio.com',
-    storageBucket: 'feastfriends-6a21c.appspot.com',
-    measurementId: 'G-W2FRW9H9S3',
+    apiKey: 'AIzaSyAfENTVCNfmtkjUVBRlUN25beN4oT4gDII',
+    appId: '1:282937028069:web:99b920fa308c53c25f530c',
+    messagingSenderId: '282937028069',
+    projectId: 'feastfriends-78d6d',
+    authDomain: 'feastfriends-78d6d.firebaseapp.com',
+    storageBucket: 'feastfriends-78d6d.appspot.com',
+    measurementId: 'G-CGTKMVCCGT',
   );
+
 }

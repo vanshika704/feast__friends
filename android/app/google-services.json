@@ -1,52 +1,26 @@
 {
   "project_info": {
-    "project_number": "182471678371",
-    "firebase_url": "https://feastfriends-6a21c-default-rtdb.firebaseio.com",
-    "project_id": "feastfriends-6a21c",
-    "storage_bucket": "feastfriends-6a21c.appspot.com"
+    "project_number": "282937028069",
+    "project_id": "feastfriends-78d6d",
+    "storage_bucket": "feastfriends-78d6d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:182471678371:android:c8b3eaa3a1a29ff67fa216",
+        "mobilesdk_app_id": "1:282937028069:android:0a199eb8bf5cad375f530c",
         "android_client_info": {
           "package_name": "com.example.feast__friends"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "182471678371-mgsi769vauph32189rqk7r1juua4elhs.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.feast__friends",
-            "certificate_hash": "473a10d446626b8b15e9d8490101a0b67841298b"
-          }
-        },
-        {
-          "client_id": "182471678371-aveo8nqbvc6tm0f9r6l6p8otsoubpnoo.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAIbtEnmVYEcGU5KPuP8RUrl3shwn8gqAI"
+          "current_key": "AIzaSyABXATP-sa3zyw1poPnpXht0cH_m3WUUdc"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "182471678371-aveo8nqbvc6tm0f9r6l6p8otsoubpnoo.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "182471678371-8davlt4cjj9gh99vkl4npujj7hl325gk.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.feastFriends"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
