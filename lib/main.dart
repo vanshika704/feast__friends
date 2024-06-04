@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: FractionallySizedBox(
-                widthFactor: 0.25,
+                widthFactor: 1,
                 child: TextFormField(
                   decoration: const InputDecoration(
                     labelText: 'Enter email id',
@@ -112,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: FractionallySizedBox(
-                widthFactor: 0.25,
+                widthFactor: 1,
                 child: TextFormField(
                   obscureText: true,
                   decoration: const InputDecoration(
@@ -139,7 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
               label: const Text('Sign in with Google'),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.red,
+                backgroundColor: Color.fromARGB(255, 248, 202, 116),
                 padding:
                     const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
               ),
