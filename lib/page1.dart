@@ -20,14 +20,24 @@ class _Page1State extends State<Page1> {
               height: 60,
               width: 60,
             ),
+            const SizedBox(
+              width: 30,
+            ),
+            const Text(
+              "Choose Way..",
+              style: TextStyle(
+                  color: Color.fromARGB(255, 248, 202, 116),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30),
+            )
           ],
         ),
       ),
       body: Container(
         color: Colors.black,
         child: GridView.builder(
-          padding: EdgeInsets.all(50.0),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          padding: const EdgeInsets.all(50.0),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 1,
             mainAxisSpacing: 10.0,
             childAspectRatio: 4 / 1,
@@ -35,8 +45,8 @@ class _Page1State extends State<Page1> {
           itemCount: 6,
           itemBuilder: (context, index) {
             return Container(
-              color: Color.fromARGB(255, 248, 202, 116),
-              margin: EdgeInsets.symmetric(vertical: 3.0),
+              color: const Color.fromARGB(255, 248, 202, 116),
+              margin: const EdgeInsets.symmetric(vertical: 3.0),
             );
           },
         ),
