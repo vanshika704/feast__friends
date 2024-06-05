@@ -21,7 +21,7 @@ class _Page1State extends State<Page1> {
               width: 60,
             ),
             const SizedBox(
-              width: 30,
+              width: 20,
             ),
             const Text(
               "Choose Way..",
