@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
         duration: const Duration(seconds: 2),
       );
 
-      Get.offNamed("/page1");
+      Get.offNamed("/page2");
     } on FirebaseAuthException catch (e) {
       print("Error: $e");
 
@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
           snackPosition: SnackPosition.BOTTOM,
           duration: const Duration(seconds: 2),
         );
-        Get.offNamed("/page1");
+        Get.offNamed("/page2");
       } else {
         print("Error signing in with Google: Google sign-in account is null");
         Get.snackbar(

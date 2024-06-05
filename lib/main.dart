@@ -1,3 +1,4 @@
+import 'package:feast__friends/Page2.dart';
 import 'package:feast__friends/page1.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,10 +23,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Feast Friends',
       initialRoute:
-          FirebaseAuth.instance.currentUser == null ? "/LoginPage" : "/page1",
+          FirebaseAuth.instance.currentUser == null ? "/LoginPage" : "/page2",
       getPages: [
         GetPage(name: "/LoginPage", page: () => const LoginPage()),
         GetPage(name: "/page1", page: () => const Page1()),
+        GetPage(name: "/page2", page: () => const MainPage()),
       ],
       theme: ThemeData(
         colorScheme:
