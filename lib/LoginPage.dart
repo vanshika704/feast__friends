@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
         duration: const Duration(seconds: 2),
       );
 
-      Get.offNamed("/Page1");
+      Get.offNamed("/page1");
     } on FirebaseAuthException catch (e) {
       print("Error: $e");
 
@@ -55,26 +55,37 @@ class _LoginPageState extends State<LoginPage> {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
-      final GoogleSignInAuthentication googleSignInAuthentication =
-          await googleSignInAccount!.authentication;
 
-      final AuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleSignInAuthentication.accessToken,
-        idToken: googleSignInAuthentication.idToken,
-      );
+      if (googleSignInAccount != null) {
+        final GoogleSignInAuthentication googleSignInAuthentication =
+            await googleSignInAccount.authentication;
 
-      final UserCredential userCredential =
-          await _auth.signInWithCredential(credential);
+        final AuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleSignInAuthentication.accessToken,
+          idToken: googleSignInAuthentication.idToken,
+        );
 
-      print("Signed in with Google: ${userCredential.user?.displayName}");
+        final UserCredential userCredential =
+            await _auth.signInWithCredential(credential);
 
-      Get.snackbar(
-        "Success",
-        "Signed in with Google successfully",
-        snackPosition: SnackPosition.BOTTOM,
-        duration: const Duration(seconds: 2),
-      );
-      Get.offNamed("/Page1");
+        print("Signed in with Google: ${userCredential.user?.displayName}");
+
+        Get.snackbar(
+          "Success",
+          "Signed in with Google successfully",
+          snackPosition: SnackPosition.BOTTOM,
+          duration: const Duration(seconds: 2),
+        );
+        Get.offNamed("/page1");
+      } else {
+        print("Error signing in with Google: Google sign-in account is null");
+        Get.snackbar(
+          "Error",
+          "Failed to sign in with Google: Google sign-in account is null",
+          snackPosition: SnackPosition.BOTTOM,
+          duration: const Duration(seconds: 3),
+        );
+      }
     } catch (e) {
       print("Error signing in with Google: $e");
       Get.snackbar(
@@ -90,96 +101,105 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 2, 2, 2),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FractionallySizedBox(
-              widthFactor: 0.5,
-              child: Image.asset(
-                "assets/logo.png",
-                height: 300,
-                errorBuilder: (context, error, stackTrace) {
-                  return const Text(
-                    'Image not found',
-                    style: TextStyle(color: Colors.white),
-                  );
-                },
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: FractionallySizedBox(
-                widthFactor: 1,
-                child: TextFormField(
-                  controller: _emailController,
-                  decoration: const InputDecoration(
-                    labelText: 'Enter email id',
-                    labelStyle:
-                        TextStyle(color: Color.fromARGB(255, 248, 202, 116)),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Color.fromARGB(255, 248, 202, 116)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Color.fromARGB(255, 248, 202, 116)),
+      body: SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: MediaQuery.of(context).size.height,
+          ),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                FractionallySizedBox(
+                  widthFactor: 0.5,
+                  child: Image.asset(
+                    "assets/logo.png",
+                    height: 300,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Text(
+                        'Image not found',
+                        style: TextStyle(color: Colors.white),
+                      );
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: FractionallySizedBox(
+                    widthFactor: 1,
+                    child: TextFormField(
+                      controller: _emailController,
+                      decoration: const InputDecoration(
+                        labelText: 'Enter email id',
+                        labelStyle: TextStyle(
+                            color: Color.fromARGB(255, 248, 202, 116)),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 248, 202, 116)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 248, 202, 116)),
+                        ),
+                      ),
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 248, 202, 116)),
                     ),
                   ),
-                  style: const TextStyle(
-                      color: Color.fromARGB(255, 248, 202, 116)),
                 ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: FractionallySizedBox(
-                widthFactor: 1,
-                child: TextFormField(
-                  controller: _passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Enter password',
-                    labelStyle:
-                        TextStyle(color: Color.fromARGB(255, 248, 202, 116)),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Color.fromARGB(255, 248, 202, 116)),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide:
-                          BorderSide(color: Color.fromARGB(255, 248, 202, 116)),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: FractionallySizedBox(
+                    widthFactor: 1,
+                    child: TextFormField(
+                      controller: _passwordController,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        labelText: 'Enter password',
+                        labelStyle: TextStyle(
+                            color: Color.fromARGB(255, 248, 202, 116)),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 248, 202, 116)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(255, 248, 202, 116)),
+                        ),
+                      ),
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 248, 202, 116)),
                     ),
                   ),
-                  style: const TextStyle(
-                      color: Color.fromARGB(255, 248, 202, 116)),
                 ),
-              ),
+                ElevatedButton.icon(
+                  onPressed: _signInWithGoogle,
+                  icon: const FaIcon(FontAwesomeIcons.google,
+                      color: Colors.white),
+                  label: const Text('Sign in with Google'),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: const Color.fromARGB(255, 248, 202, 116),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                ElevatedButton.icon(
+                  onPressed: _signInWithEmailAndPassword,
+                  icon: const FaIcon(FontAwesomeIcons.envelope,
+                      color: Colors.white),
+                  label: const Text('Sign in with Email'),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: const Color.fromARGB(255, 248, 202, 116),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12),
+                  ),
+                ),
+              ],
             ),
-            ElevatedButton.icon(
-              onPressed: _signInWithGoogle,
-              icon: const FaIcon(FontAwesomeIcons.google, color: Colors.white),
-              label: const Text('Sign in with Google'),
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: const Color.fromARGB(255, 248, 202, 116),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              ),
-            ),
-            ElevatedButton.icon(
-              onPressed: _signInWithEmailAndPassword,
-              icon:
-                  const FaIcon(FontAwesomeIcons.mailchimp, color: Colors.white),
-              label: const Text('Sign in with Email'),
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: const Color.fromARGB(255, 248, 202, 116),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );
