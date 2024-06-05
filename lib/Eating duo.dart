@@ -24,11 +24,11 @@ class _EatingDuoState extends State<EatingDuo> {
               width: 20,
             ),
             const Text(
-              "Dine Partner...",
+              "Find A Partner",
               style: TextStyle(
                   color: Color.fromARGB(255, 248, 202, 116),
                   fontWeight: FontWeight.bold,
-                  fontSize: 30),
+                  fontSize: 20),
             )
           ],
         ),
