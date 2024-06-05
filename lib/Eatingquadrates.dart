@@ -24,7 +24,7 @@ class _EatingQuadratesState extends State<EatingQuadrates> {
               width: 20,
             ),
             const Text(
-              "Dine Partner...",
+              "Find Partners",
               style: TextStyle(
                   color: Color.fromARGB(255, 248, 202, 116),
                   fontWeight: FontWeight.bold,

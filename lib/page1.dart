@@ -69,7 +69,7 @@ class _Page1State extends State<Page1> {
         children: [
           Positioned.fill(
             child: Image.asset(
-              "assets/Untitled design (6).png",
+              "assets/Untitled design (14).png",
               fit: BoxFit.cover,
             ),
           ),

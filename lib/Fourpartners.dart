@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class EatingTrio extends StatefulWidget {
-  const EatingTrio({super.key});
+class FourPartners extends StatefulWidget {
+  const FourPartners({super.key});
 
   @override
-  State<EatingTrio> createState() => _EatingTrioState();
+  State<FourPartners> createState() => _FourPartnersState();
 }
 
-class _EatingTrioState extends State<EatingTrio> {
+class _FourPartnersState extends State<FourPartners> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,11 +24,11 @@ class _EatingTrioState extends State<EatingTrio> {
               width: 20,
             ),
             const Text(
-              "Find A Partner",
+              "Find Partners",
               style: TextStyle(
                   color: Color.fromARGB(255, 248, 202, 116),
                   fontWeight: FontWeight.bold,
-                  fontSize: 20),
+                  fontSize: 30),
             )
           ],
         ),
