@@ -20,7 +20,7 @@ class _MainPageState extends State<MainPage> {
 
   Future<void> fetchFoodImages() async {
     final response = await http.get(Uri.parse(
-        'https://api.unsplash.com/photos/random?query=food&count=3&client_id=-SXu-p1sLlhOb9e6jqiKCfP46WmqjCl3DeGLt_L2-tw'));
+        'https://api.unsplash.com/photos/random?query=food&count=140&client_id=-SXu-p1sLlhOb9e6jqiKCfP46WmqjCl3DeGLt_L2-tw'));
 
     if (response.statusCode == 200) {
       final List<dynamic> data = jsonDecode(response.body);
@@ -68,11 +68,7 @@ class _MainPageState extends State<MainPage> {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.all(16.0),
         child: Row(
-          children: [
-            _buildCard(foodImages.isNotEmpty ? foodImages[0] : ''),
-            _buildCard(foodImages.isNotEmpty ? foodImages[1] : ''),
-            _buildCard(foodImages.isNotEmpty ? foodImages[2] : ''),
-          ],
+          children: foodImages.map((imageUrl) => _buildCard(imageUrl)).toList(),
         ),
       ),
     );
