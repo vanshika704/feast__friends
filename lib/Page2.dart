@@ -85,8 +85,8 @@ class _MainPageState extends State<MainPage> {
           padding: const EdgeInsets.all(16.0),
           child: imageUrl.isNotEmpty
               ? Container(
-                  height: 200, // Adjust height as needed
-                  width: 200, // Adjust width as needed
+                  height: 200,
+                  width: 200,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage(imageUrl),
