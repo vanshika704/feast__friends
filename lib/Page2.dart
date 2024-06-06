@@ -10,17 +10,17 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  List<String> foodImages = [];
+  late Future<List<String>> futureFoodImages;
 
   @override
   void initState() {
     super.initState();
-    fetchFoodImages();
+    futureFoodImages = fetchFoodImages();
   }
 
-  Future<void> fetchFoodImages() async {
+  Future<List<String>> fetchFoodImages() async {
     final response = await http.get(Uri.parse(
-        'https://api.unsplash.com/photos/random?query=food&count=140&client_id=-SXu-p1sLlhOb9e6jqiKCfP46WmqjCl3DeGLt_L2-tw'));
+        'https://api.unsplash.com/photos/random?query=food&count=170&client_id=-SXu-p1sLlhOb9e6jqiKCfP46WmqjCl3DeGLt_L2-tw'));
 
     if (response.statusCode == 200) {
       final List<dynamic> data = jsonDecode(response.body);
@@ -29,9 +29,7 @@ class _MainPageState extends State<MainPage> {
         final imageUrl = item['urls']['regular'];
         images.add(imageUrl);
       }
-      setState(() {
-        foodImages = images;
-      });
+      return images;
     } else {
       throw Exception('Failed to load images');
     }
@@ -64,19 +62,40 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
       backgroundColor: Colors.black,
-      body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.all(16.0),
-        child: Row(
-          children: foodImages.map((imageUrl) => _buildCard(imageUrl)).toList(),
-        ),
+      body: FutureBuilder<List<String>>(
+        future: futureFoodImages,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Text('Failed to load images'),
+            );
+          } else if (snapshot.hasData) {
+            return SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: snapshot.data!
+                    .map((imageUrl) => _buildCard(imageUrl))
+                    .toList(),
+              ),
+            );
+          } else {
+            return Center(
+              child: Text('No images found'),
+            );
+          }
+        },
       ),
     );
   }
 
   Widget _buildCard(String imageUrl) {
     return Card(
-      color: const Color.fromARGB(110, 224, 224, 224),
+      color: Color.fromARGB(109, 7, 7, 7),
       child: InkWell(
         onTap: () {
           print('Card tapped: $imageUrl');
@@ -85,8 +104,8 @@ class _MainPageState extends State<MainPage> {
           padding: const EdgeInsets.all(16.0),
           child: imageUrl.isNotEmpty
               ? Container(
-                  height: 200,
-                  width: 200,
+                  height: 150,
+                  width: 150,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       image: NetworkImage(imageUrl),
