@@ -95,7 +95,7 @@ class _MainPageState extends State<MainPage> {
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                 )
-              : Container(), // Return an empty container if imageUrl is empty
+              : Container(),
         ),
       ),
     );
