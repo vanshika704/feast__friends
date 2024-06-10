@@ -1,3 +1,5 @@
+import 'dart:ui'; // Add this line
+
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -47,24 +49,34 @@ class _MainPageState extends State<MainPage> {
         ),
         body: Container(
           color: Colors.black,
-          child: const TabBarView(
+          child: TabBarView(
             children: [
-              Column(children: [
-                Text('Home',
-                    style: TextStyle(fontSize: 50, color: Colors.white))
-              ]),
-              Column(children: [
-                Text('Explore',
-                    style: TextStyle(fontSize: 50, color: Colors.white))
-              ]),
-              Column(children: [
-                Text('Partner',
-                    style: TextStyle(fontSize: 50, color: Colors.white))
-              ]),
-              Column(children: [
-                Text('About',
-                    style: TextStyle(fontSize: 50, color: Colors.white))
-              ]),
+              Column(
+                children: [
+                  Image.asset(
+                    'assets/food1.jpg',
+                    fit: BoxFit.cover,
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Text('Explore',
+                      style: TextStyle(fontSize: 50, color: Colors.white)),
+                ],
+              ),
+              Column(
+                children: [
+                  Text('Partner',
+                      style: TextStyle(fontSize: 50, color: Colors.white)),
+                ],
+              ),
+              Column(
+                children: [
+                  Text('About',
+                      style: TextStyle(fontSize: 50, color: Colors.white)),
+                ],
+              ),
             ],
           ),
         ),
