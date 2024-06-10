@@ -16,7 +16,7 @@ class _MainPageState extends State<MainPage> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-          toolbarHeight: 47.0,
+          toolbarHeight: 60.0,
           title: Row(
             children: [
               Image.asset(
@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
                   indicatorSize: TabBarIndicatorSize.label,
                   labelColor: Color.fromARGB(255, 252, 221, 85),
                   unselectedLabelColor: Color.fromARGB(255, 253, 253, 253),
-                  labelPadding: EdgeInsets.symmetric(horizontal: 5.0),
+                  labelPadding: EdgeInsets.symmetric(horizontal: 8.0),
                   indicator: BoxDecoration(),
                   tabs: [
                     Tab(text: 'Home'),
@@ -45,13 +45,18 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
         ),
-        body: const TabBarView(
-          children: [
-            Center(child: Text('Home', style: TextStyle(fontSize: 50))),
-            Center(child: Text('Explore', style: TextStyle(fontSize: 50))),
-            Center(child: Text('Partner', style: TextStyle(fontSize: 50))),
-            Center(child: Text('About', style: TextStyle(fontSize: 50))),
-          ],
+        body: Container(
+          color: Colors.black,
+          child: TabBarView(
+            children: [
+              Column(children: [Text('Home', style: TextStyle(fontSize: 50))]),
+              Column(
+                  children: [Text('Explore', style: TextStyle(fontSize: 50))]),
+              Column(
+                  children: [Text('Partner', style: TextStyle(fontSize: 50))]),
+              Column(children: [Text('About', style: TextStyle(fontSize: 50))]),
+            ],
+          ),
         ),
       ),
     );
