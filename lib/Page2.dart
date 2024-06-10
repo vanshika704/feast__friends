@@ -16,12 +16,12 @@ class _MainPageState extends State<MainPage> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-          toolbarHeight: 60.0, // Adjust the height of the AppBar
+          toolbarHeight: 47.0,
           title: Row(
             children: [
               Image.asset(
                 "assets/logo.png",
-                height: 50, // Adjust the logo size
+                height: 50,
                 width: 40,
               ),
               const SizedBox(width: 3),
