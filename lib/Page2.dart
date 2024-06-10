@@ -28,7 +28,7 @@ class _MainPageState extends State<MainPage> {
                   width: 10), // Add some spacing between logo and tabs
               const Flexible(
                 child: TabBar(
-                  isScrollable: true,
+                  isScrollable: false,
                   indicatorSize: TabBarIndicatorSize.label,
                   labelPadding: EdgeInsets.symmetric(horizontal: 10.0),
                   tabs: [
