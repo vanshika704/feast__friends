@@ -1,120 +1,54 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({super.key});
 
   @override
   State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
-  late Future<List<String>> futureFoodImages;
-
-  @override
-  void initState() {
-    super.initState();
-    futureFoodImages = fetchFoodImages();
-  }
-
-  Future<List<String>> fetchFoodImages() async {
-    final response = await http.get(Uri.parse(
-        'https://api.unsplash.com/photos/random?query=food&count=170&client_id=-SXu-p1sLlhOb9e6jqiKCfP46WmqjCl3DeGLt_L2-tw'));
-
-    if (response.statusCode == 200) {
-      final List<dynamic> data = jsonDecode(response.body);
-      final List<String> images = [];
-      for (final item in data) {
-        final imageUrl = item['urls']['regular'];
-        images.add(imageUrl);
-      }
-      return images;
-    } else {
-      throw Exception('Failed to load images');
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Row(
-          children: [
-            Image.asset(
-              "assets/logo.png",
-              height: 60,
-              width: 60,
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            Text(
-              "Welcome",
-              style: TextStyle(
-                color: Color.fromARGB(255, 248, 202, 116),
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+          toolbarHeight: 80.0, // Adjust the height of the AppBar
+          title: Row(
+            children: [
+              Image.asset(
+                "assets/logo.png",
+                height: 50, // Adjust the logo size
+                width: 45,
               ),
-            ),
-          ],
+              const SizedBox(
+                  width: 10), // Add some spacing between logo and tabs
+              const Flexible(
+                child: TabBar(
+                  isScrollable: true,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  labelPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                  tabs: [
+                    Tab(text: 'Home'),
+                    Tab(text: 'Explore'),
+                    Tab(text: 'Partner'),
+                    Tab(text: 'About'),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-      backgroundColor: Colors.black,
-      body: FutureBuilder<List<String>>(
-        future: futureFoodImages,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: Text('Failed to load images'),
-            );
-          } else if (snapshot.hasData) {
-            return SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: snapshot.data!
-                    .map((imageUrl) => _buildCard(imageUrl))
-                    .toList(),
-              ),
-            );
-          } else {
-            return Center(
-              child: Text('No images found'),
-            );
-          }
-        },
-      ),
-    );
-  }
-
-  Widget _buildCard(String imageUrl) {
-    return Card(
-      color: Color.fromARGB(109, 7, 7, 7),
-      child: InkWell(
-        onTap: () {
-          print('Card tapped: $imageUrl');
-        },
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: imageUrl.isNotEmpty
-              ? Container(
-                  height: 150,
-                  width: 150,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(imageUrl),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                )
-              : Container(),
+        body: const TabBarView(
+          children: [
+            Center(child: Text('Home', style: TextStyle(fontSize: 24))),
+            Center(child: Text('Explore', style: TextStyle(fontSize: 24))),
+            Center(child: Text('Partner', style: TextStyle(fontSize: 24))),
+            Center(child: Text('About', style: TextStyle(fontSize: 24))),
+          ],
         ),
       ),
     );
