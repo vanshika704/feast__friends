@@ -22,8 +22,8 @@ class _MainPageState extends State<MainPage> {
             children: [
               Image.asset(
                 "assets/logo.png",
-                height: 50,
-                width: 40,
+                height: 65, // Increased height by 15 pixels
+                width: 55, // Increased width by 15 pixels
               ),
               const SizedBox(width: 3),
               SizedBox(
@@ -61,11 +61,13 @@ class _MainPageState extends State<MainPage> {
                   Stack(
                     children: [
                       Image.asset(
-                        'assets/food1.jpg',
+                        'assets/food7.jpg',
                         fit: BoxFit.cover,
+                        height: 300,
+                        width: 500,
                       ),
                       Positioned(
-                        top: 50,
+                        top: 80,
                         left: 50,
                         child: Text(
                           "Life is too Short for \n     Boring food",
