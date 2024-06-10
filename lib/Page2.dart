@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -16,21 +16,24 @@ class _MainPageState extends State<MainPage> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: const Color.fromARGB(255, 0, 0, 0),
-          toolbarHeight: 80.0, // Adjust the height of the AppBar
+          toolbarHeight: 60.0, // Adjust the height of the AppBar
           title: Row(
             children: [
               Image.asset(
                 "assets/logo.png",
                 height: 50, // Adjust the logo size
-                width: 45,
+                width: 40,
               ),
-              const SizedBox(
-                  width: 10), // Add some spacing between logo and tabs
-              const Flexible(
-                child: TabBar(
+              const SizedBox(width: 3),
+              SizedBox(
+                width: MediaQuery.of(context).size.width - 100,
+                child: const TabBar(
                   isScrollable: false,
                   indicatorSize: TabBarIndicatorSize.label,
-                  labelPadding: EdgeInsets.symmetric(horizontal: 10.0),
+                  labelColor: Color.fromARGB(255, 252, 221, 85),
+                  unselectedLabelColor: Color.fromARGB(255, 253, 253, 253),
+                  labelPadding: EdgeInsets.symmetric(horizontal: 5.0),
+                  indicator: BoxDecoration(),
                   tabs: [
                     Tab(text: 'Home'),
                     Tab(text: 'Explore'),
@@ -44,10 +47,10 @@ class _MainPageState extends State<MainPage> {
         ),
         body: const TabBarView(
           children: [
-            Center(child: Text('Home', style: TextStyle(fontSize: 24))),
-            Center(child: Text('Explore', style: TextStyle(fontSize: 24))),
-            Center(child: Text('Partner', style: TextStyle(fontSize: 24))),
-            Center(child: Text('About', style: TextStyle(fontSize: 24))),
+            Center(child: Text('Home', style: TextStyle(fontSize: 50))),
+            Center(child: Text('Explore', style: TextStyle(fontSize: 50))),
+            Center(child: Text('Partner', style: TextStyle(fontSize: 50))),
+            Center(child: Text('About', style: TextStyle(fontSize: 50))),
           ],
         ),
       ),
