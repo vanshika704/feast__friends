@@ -47,14 +47,24 @@ class _MainPageState extends State<MainPage> {
         ),
         body: Container(
           color: Colors.black,
-          child: TabBarView(
+          child: const TabBarView(
             children: [
-              Column(children: [Text('Home', style: TextStyle(fontSize: 50))]),
-              Column(
-                  children: [Text('Explore', style: TextStyle(fontSize: 50))]),
-              Column(
-                  children: [Text('Partner', style: TextStyle(fontSize: 50))]),
-              Column(children: [Text('About', style: TextStyle(fontSize: 50))]),
+              Column(children: [
+                Text('Home',
+                    style: TextStyle(fontSize: 50, color: Colors.white))
+              ]),
+              Column(children: [
+                Text('Explore',
+                    style: TextStyle(fontSize: 50, color: Colors.white))
+              ]),
+              Column(children: [
+                Text('Partner',
+                    style: TextStyle(fontSize: 50, color: Colors.white))
+              ]),
+              Column(children: [
+                Text('About',
+                    style: TextStyle(fontSize: 50, color: Colors.white))
+              ]),
             ],
           ),
         ),
