@@ -9,6 +9,21 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  void _onExploreTap() {
+    // Navigate to Explore page or perform action
+    print('Explore tapped');
+  }
+
+  void _onFindPartnerTap() {
+    // Navigate to Find Partner page or perform action
+    print('Find Partner tapped');
+  }
+
+  void _onThirdContainerTap() {
+    // Perform action for the third container
+    print('Third container tapped');
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -80,10 +95,112 @@ class _MainPageState extends State<MainPage> {
                       ),
                     ],
                   ),
+                  Container(
+                    width: 400,
+                    height: 100,
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(207, 83, 83, 83),
+                    ),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: InkWell(
+                            onTap: _onExploreTap,
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  top: BorderSide(
+                                    color: Colors.white,
+                                    width: 3.0,
+                                  ),
+                                  right: BorderSide(
+                                    color: Colors.white,
+                                    width: 1.0,
+                                  ),
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.location_on,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    'Explore',
+                                    style: GoogleFonts.dmSerifText(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: InkWell(
+                            onTap: _onFindPartnerTap,
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  top: BorderSide(
+                                    color: Colors.white,
+                                    width: 3.0,
+                                  ),
+                                  right: BorderSide(
+                                    color: Colors.white,
+                                    width: 1.0,
+                                  ),
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.people,
+                                    color: Colors.white,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    'Find Partner',
+                                    style: GoogleFonts.dmSerifText(
+                                      textStyle: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: InkWell(
+                            onTap: _onThirdContainerTap,
+                            child: Container(
+                              decoration: const BoxDecoration(
+                                border: Border(
+                                  top: BorderSide(
+                                    color: Colors.white,
+                                    width: 3.0,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
               Column(
-                // exxplore page
+                // explore page
                 children: [
                   Text('Explore',
                       style: GoogleFonts.dmSerifText(
@@ -94,7 +211,7 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
               Column(
-                //  partner page
+                // partner page
                 children: [
                   Text('Partner',
                       style: GoogleFonts.dmSerifText(
@@ -105,7 +222,7 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
               Column(
-                // About
+                // about page
                 children: [
                   Text('About',
                       style: GoogleFonts.dmSerifText(
