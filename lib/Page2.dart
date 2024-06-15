@@ -22,8 +22,8 @@ class _MainPageState extends State<MainPage> {
             children: [
               Image.asset(
                 "assets/logo.png",
-                height: 65, // Increased height by 15 pixels
-                width: 55, // Increased width by 15 pixels
+                height: 65,
+                width: 55,
               ),
               const SizedBox(width: 3),
               SizedBox(
@@ -32,16 +32,16 @@ class _MainPageState extends State<MainPage> {
                   isScrollable: false,
                   indicatorSize: TabBarIndicatorSize.label,
                   labelStyle: GoogleFonts.dmSerifText(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                     color: Color.fromARGB(255, 252, 221, 85),
                   )),
                   unselectedLabelStyle: GoogleFonts.dmSerifText(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                     color: Color.fromARGB(255, 253, 253, 253),
                   )),
-                  labelPadding: EdgeInsets.symmetric(horizontal: 8.0),
-                  indicator: BoxDecoration(),
-                  tabs: [
+                  labelPadding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  indicator: const BoxDecoration(),
+                  tabs: const [
                     Tab(text: 'Home'),
                     Tab(text: 'Explore'),
                     Tab(text: 'Partner'),
@@ -72,7 +72,7 @@ class _MainPageState extends State<MainPage> {
                         child: Text(
                           "Life is too Short for \n     Boring food",
                           style: GoogleFonts.dmSerifText(
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                             fontSize: 30,
                             color: Color.fromARGB(255, 247, 244, 244),
                           )),
@@ -83,30 +83,33 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
               Column(
+                // exxplore page
                 children: [
                   Text('Explore',
                       style: GoogleFonts.dmSerifText(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                         fontSize: 50,
                         color: Colors.white,
                       ))),
                 ],
               ),
               Column(
+                //  partner page
                 children: [
                   Text('Partner',
                       style: GoogleFonts.dmSerifText(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                         fontSize: 50,
                         color: Colors.white,
                       ))),
                 ],
               ),
               Column(
+                // About
                 children: [
                   Text('About',
                       style: GoogleFonts.dmSerifText(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                         fontSize: 50,
                         color: Colors.white,
                       ))),
