@@ -214,21 +214,29 @@ class _MainPageState extends State<MainPage> {
                         ],
                       ),
                     ),
+                    SizedBox(height: 20),
                     Row(
                       children: [
                         Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Color.fromARGB(255, 94, 93, 93),
-                              width: 2, 
-                            ),
-                          ),
-                          child: Image.asset(
-                            "assets/pic2.png",
-                            height: 200,
-                            width: 180,
-                          ),
-                        ),
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(16), // Adjust the value for more/less curvature
+    // Optionally, you can also add a border:
+    // border: Border.all(
+    //   color: Color.fromARGB(255, 94, 93, 93),
+    //   width: 2,
+    // ),
+  ),
+  child: ClipRRect(
+    borderRadius: BorderRadius.circular(16), // Match the same radius as in BoxDecoration
+    child: Image.asset(
+      "assets/pic2.png",
+      height: 150,
+      width: 180,
+      fit: BoxFit.cover, // Ensures the image fits nicely within the curved edges
+    ),
+  ),
+),
+
                         SizedBox(
                             width:
                                 20), // Adjust the width as needed for spacing

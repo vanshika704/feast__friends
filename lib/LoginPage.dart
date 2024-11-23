@@ -173,7 +173,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 ElevatedButton.icon(
-                  onPressed: _signInWithGoogle,
+                  onPressed: () {
+  Get.offNamed("/page2");
+},
+
+                  // _signInWithGoogle,
+
                   icon: const FaIcon(FontAwesomeIcons.google,
                       color: Colors.white),
                   label: const Text('Sign in with Google'),
